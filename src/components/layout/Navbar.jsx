@@ -12,8 +12,8 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="flex items-center gap-2 font-mono font-bold text-lg text-brand-mist hover:text-brand-gold transition-colors" style={{ transitionDuration: 'var(--duration-micro)' }}>
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <rect width="28" height="28" rx="6" fill="#FFC801"/>
-              <path d="M7 14h4l3-6 4 12 3-6h4" stroke="#172B36" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <rect width="28" height="28" rx="6" fill="#FFC801" />
+              <path d="M7 14h4l3-6 4 12 3-6h4" stroke="#172B36" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             SynapseIQ
           </a>
@@ -42,15 +42,13 @@ export default function Navbar() {
             aria-expanded={open}
             aria-label="Toggle menu"
           >
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-              {open ? (
-                <path d="M5 5l12 12M17 5L5 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              ) : (
-                <>
-                  <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </>
-              )}
-            </svg>
+            {open ? (
+              <XMarkIcon className="w-[22px] h-[22px]" />
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            )}
           </button>
         </nav>
       </Container>
