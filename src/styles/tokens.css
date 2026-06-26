@@ -1,0 +1,24 @@
+:root {
+  /* Brand Colors */
+  --color-ink:   #172B36;
+  --color-deep:  #114C5A;
+  --color-gold:  #FFC801;
+  --color-amber: #FF9932;
+  --color-mist:  #F1F6F4;
+  --color-sage:  #D9E8E2;
+
+  /* Font Stacks */
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+
+  /* Motion — micro (hover, toggle, price flash) */
+  --ease-micro: cubic-bezier(0, 0, 0.2, 1);
+  --duration-micro: 180ms;
+
+  /* Motion — structural (accordion, layout transitions) */
+  --ease-structural: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-structural: 350ms;
+
+  /* Motion — press */
+  --duration-press: 100ms;
+}

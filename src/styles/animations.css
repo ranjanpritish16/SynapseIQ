@@ -1,0 +1,38 @@
+/* ─── Entry animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Price text flash ─── */
+@keyframes priceFlash {
+  0%   { opacity: 1; }
+  40%  { opacity: 0.35; }
+  100% { opacity: 1; }
+}
+
+/* ─── Ambient background orb drift ─── */
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -15px) scale(1.04); }
+  66%       { transform: translate(-12px, 10px) scale(0.97); }
+}
+
+/* ─── Reduced motion overrides ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

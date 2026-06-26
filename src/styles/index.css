@@ -1,0 +1,89 @@
+@import './tokens.css';
+@import './animations.css';
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base resets ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  /* height of fixed navbar (64px) + 8px breathing room */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ink);
+  color: var(--color-mist);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Section heading pattern ─── */
+@layer components {
+  .section-heading {
+    @apply font-mono font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-xs font-semibold tracking-[0.18em] uppercase text-brand-gold mb-3;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-brand-deep bg-brand-deep/40 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-gold text-brand-ink font-mono font-semibold text-sm px-6 py-3 rounded-full transition-all hover:bg-brand-amber hover:scale-[1.03] active:scale-[0.97];
+    transition-duration: var(--duration-micro);
+    transition-timing-function: var(--ease-micro);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border border-brand-gold/40 text-brand-mist font-mono text-sm px-6 py-3 rounded-full hover:border-brand-gold hover:text-brand-gold;
+    transition: all var(--duration-micro) var(--ease-micro);
+  }
+}
+
+/* ─── Scroll reveal ─── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-structural) var(--ease-structural),
+    transform var(--duration-structural) var(--ease-structural);
+}
+
+[data-reveal="visible"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Accordion panel transition ─── */
+.accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height var(--duration-structural) var(--ease-structural),
+    opacity var(--duration-structural) var(--ease-structural);
+}
+
+.accordion-panel.open {
+  max-height: 600px;
+  opacity: 1;
+}
+
+/* Safety: if JS hasn't run or IntersectionObserver missed, don't hide content */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
