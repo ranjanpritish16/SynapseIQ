@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { navLinks } from '../../data/navLinks'
 import Container from './Container'
+import { XMarkIcon } from '../ui/icons'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -36,6 +37,7 @@ export default function Navbar() {
           </div>
 
           {/* Hamburger */}
+
           <button
             className="md:hidden p-2 text-brand-mist"
             onClick={() => setOpen(o => !o)}
